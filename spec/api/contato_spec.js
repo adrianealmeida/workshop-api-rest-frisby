@@ -22,7 +22,7 @@ frisby.create('Validar dados de contato pelo ID')
     .expectHeaderContains('Content-Type', 'json')
     .expectJSON({
         id: 1,
-        nome: 'JoãoOOO',
+        nome: 'João',
         email: 'joao@gmail.com',
         idade: 46,
         restricao: false
