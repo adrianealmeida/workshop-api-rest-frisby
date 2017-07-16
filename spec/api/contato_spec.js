@@ -77,10 +77,9 @@ frisby.create('Validar a remoção de um contato')
       })
     .auth(user, password)
     .expectStatus(201)
-    .after(function(err, res, body){
-        var retorno = JSON.parse(body);
+    .afterJSON(function(json){
         frisby.create("Remover um contato com sucesso")
-            .delete(completeURL + '/api/v1/contact/' + retorno.contato.id)
+            .delete(completeURL + '/api/v1/contact/' + json.contato.id)
             .auth(user, password)
             .expectStatus(202)
             .expectHeaderContains('Content-Type', 'json')
@@ -108,10 +107,9 @@ frisby.create('Validar a alteração de um contato')
       })
     .auth(user, password)
     .expectStatus(201)
-    .after(function(err, res, body){
-        var retorno = JSON.parse(body);
+    .afterJSON(function(json){
         frisby.create("Alterar um contato com sucesso")
-            .put(completeURL + '/api/v1/contact/' + retorno.contato.id, {
+            .put(completeURL + '/api/v1/contact/' + json.contato.id, {
                 nome: 'Roberto Leal',
             })
             .auth(user, password)
