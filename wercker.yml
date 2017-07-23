@@ -4,7 +4,11 @@ box: node
 build:
   steps:
     - npm-install
-    
+
+start:
+  steps:
+    - npm-start
+
 test:
   steps:
     - npm-test

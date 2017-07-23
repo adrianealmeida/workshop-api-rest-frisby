@@ -84,7 +84,10 @@ frisby.create('Validar a remoção de um contato')
             .expectStatus(202)
             .expectHeaderContains('Content-Type', 'json')
             .expectJSON({
-                status : "sucesso"
+                status : "sucesso",
+                contato: {
+                    id: json.contato.id
+                }
             })
             .toss();  
     })
@@ -113,10 +116,14 @@ frisby.create('Validar a alteração de um contato')
                 nome: 'Roberto Leal',
             })
             .auth(user, password)
+            .inspectBody()
             .expectStatus(200)
             .expectHeaderContains('Content-Type', 'json')
             .expectJSON({
-                status : "sucesso"
+                status : 'sucesso',
+                contato: {
+                   id: json.contato.id
+               }
             })
             .toss();  
     })
