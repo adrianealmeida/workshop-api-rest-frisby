@@ -3,6 +3,8 @@
 Este projeto é base de um workshop de automação de teste para serviços REST utilizando a ferramenta [Frisby.js](http://frisbyjs.com/)
 Qualquer um pode usar este projeto para __fins educativos__.
 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Este obra está licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Atribuição 4.0 Internacional</a>.
+
 A API foi desenvolvida utilizando [restify](http://restify.com/).
 
 ### Instar o executor dos testes
@@ -26,5 +28,18 @@ No sistema operacional Windows você receberá uma mensagem do boqueio de acesso
 
 ### Pre-condições para execução
 As pré-condições para executar toda a estutura pode ser visualizada em: [https://eliasnogueira.github.io/workshop-api-rest-frisby-base/](https://eliasnogueira.github.io/workshop-api-rest-frisby-base/)
+
+### Execução em diferentes ambientes
+Para executar em diferentes ambientes (teste e produção) está sendo usado o [config](https://www.npmjs.com/package/config) para que seja possível direcionar os testes para o ambiente correto sem a necessidade de alterá-lo.
+
+Dentro da pasta _config_ há três arquivos:
+* default.json:  configurações quando não é informando o ambiente
+* production.json: configurações para o ambiente de produção
+* test.json: configurações para o ambiente de teste
+
+O ambiente é informado através do parâmetro `NODE_ENV`.
+Exemplo para execução do teste em ambiente de produção:
+
+`NODE_ENV=production jasmine-node spec/api/ --verbose`
 
 
